@@ -1,0 +1,23 @@
+{
+  "skill_name": "pr-description",
+  "evals": [
+    {
+      "id": 1,
+      "name": "java-hexagonal-template-fill",
+      "prompt": "You're filling a PR template for a Java feature. Here's what you have:\n\n**Branch:** feature/TASK-456\n\n**PR Template:**\n```\n# Pull Request\n\n## Description\n<!-- Provide a clear and concise description -->\n\n## Type of Change\n- [ ] New feature\n- [ ] Bug fix\n- [ ] Breaking change\n- [ ] Code refactor\n- [ ] Dependency update\n\n## Architecture Compliance\n- [ ] Follows hexagonal architecture (ports & adapters)\n- [ ] New features in feature packages\n- [ ] Controllers depend on input ports\n- [ ] Services implement ports\n\n## Testing Checklist\n- [ ] Unit tests added\n- [ ] Integration tests added\n- [ ] All tests pass\n- [ ] 100% coverage\n\n## Issue Link\n[JIRA-TICKET](www.jira.com/TASK-X)\n```\n\n**Simulated Git Changes:**\n- Branch name: feature/TASK-456\n- Modified files: src/payment/PaymentService.java, src/payment/ports/PaymentPort.java, src/payment/adapters/PaymentGatewayAdapter.java\n- Added files: tests/PaymentServiceTest.java, tests/PaymentIntegrationTest.java\n- Changed files summary: 5 files (2 services, 1 port interface, 1 adapter, 2 test files)\n- Recent commits: \"Add payment gateway port interface\", \"Implement PaymentGatewayAdapter\", \"Add comprehensive tests for payment feature\"\n\nFill this PR template intelligently. The issue link should detect TASK-456 from the branch name and populate it dynamically.",
+      "expected_output": "PR description with: (1) description summarizing payment feature, (2) [x] New feature marked, (3) [x] Architecture compliance boxes checked, (4) [x] Testing boxes checked, (5) [TASK-456](www.jira.com/TASK-456) with URL updated, (6) test case suggestions with curl examples"
+    },
+    {
+      "id": 2,
+      "name": "custom-prefix-bugfix-fill",
+      "prompt": "Fill a PR template with a bugfix. Here's the context:\n\n**Branch:** feature/PEPE-789\n\n**PR Template:**\n```\n# Pull Request\n\n## Description\n\n## Type of Change\n- [ ] New feature\n- [ ] Bug fix\n- [ ] Code refactor\n\n## Issue Reference\n[PEPE-TICKET](company.jira.com/browse/PEPE-X)\n\n## Tests\n- [ ] Added regression tests\n- [ ] Added new tests\n- [ ] All pass\n```\n\n**Simulated Git Changes:**\n- Branch: feature/PEPE-789\n- Modified files: src/cache/CacheService.java, docs/CACHE.md\n- Added files: tests/CacheRegressionTest.java\n- Commits: \"Fix cache invalidation race condition\", \"Add regression tests\", \"Update cache documentation\"\n\nFill the template. The custom PEPE- prefix should be detected and the URL should update from PEPE-X to PEPE-789.",
+      "expected_output": "PR description with: (1) description of cache bugfix, (2) [x] Bug fix marked, (3) [x] Added regression tests marked, (4) [PEPE-789](company.jira.com/browse/PEPE-789) with dynamic URL, (5) regression test suggestions"
+    },
+    {
+      "id": 3,
+      "name": "no-template-refactor-fill",
+      "prompt": "Create a PR description when there's NO template provided:\n\n**Branch:** feature/improve-docs (no issue number)\n\n**Template:** None available\n\n**Simulated Git Changes:**\n- Branch: feature/improve-docs\n- Modified files: README.md, ARCHITECTURE.md, src/utils/Logger.java\n- Changed lines: 150 lines added/modified\n- Commits: \"Refactor logging utilities\", \"Update architecture documentation\", \"Improve README clarity\"\n\nCreate a clean PR description without a template. Focus on summarizing the changes and suggesting regression tests (since it's a refactor).",
+      "expected_output": "PR description with: (1) clear summary of documentation + refactor work, (2) categorized changes (Docs, Refactors), (3) regression test suggestions, (4) ready for push/save decision"
+    }
+  ]
+}

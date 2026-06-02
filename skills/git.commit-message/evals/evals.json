@@ -1,0 +1,29 @@
+{
+  "skill_name": "git.commit-message",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm in a git repository with a feature branch. Use git-commit-suggestion to analyze my changes against develop. I've added a new cache.ts file with a CacheLayer class and modified main.ts to use it.",
+      "expected_output": "Single commit suggestion: Should detect feat type changes (TypeScript source files) and suggest: 'feat: implement caching layer' or similar",
+      "files": [
+        "test-case-1-single-feature"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I'm in a git repository with multiple change types. Use git-commit-suggestion to analyze my changes. I've updated README.md, created auth.ts with a bug fix, and added auth.test.ts with tests.",
+      "expected_output": "Multi-type changes detected (docs, fix, test). Should propose grouping: (1) docs/README, (2) fix/auth.ts, (3) test/auth.test.ts. Then suggest three separate commits after confirmation.",
+      "files": [
+        "test-case-2-multi-type"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I'm in a git repository where I've created a new ADR document in docs/adr/ and also added service mesh configuration in infra/. Use git-commit-suggestion to suggest how to organize these commits.",
+      "expected_output": "Multi-type changes detected. Should propose: (1) docs: ADR file, (2) feat/chore: infrastructure config. After confirmation, suggest two commits.",
+      "files": [
+        "test-case-3-adr-impl"
+      ]
+    }
+  ]
+}
