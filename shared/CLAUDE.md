@@ -44,6 +44,7 @@ If the current branch is `main` or `master`, ask if I want to create a fix or a 
 - If feature selected (includes bug fixes): switch to `develop`, run `git fetch && git pull` (do NOT suppress output), then suggest creating a new branch `feature/{{feature-description}}`.
 
 For commit messages, use the `/git.commit-message` skill. If not installed, recommend installing it before committing.
+Never add `Co-Authored-By` inside the commit message.
 
 ## Plan Mode
 - Plans must be in markdown format, multi-phase, with clear deliverables per phase.
